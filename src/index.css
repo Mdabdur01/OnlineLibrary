@@ -1,0 +1,276 @@
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --green: #39FF14;
+  --deep-green: #28a745;
+  --green-80: #39ff1480;
+  --green-66: #39ff1466;
+  --green-transparent: #39ff1400;
+  --charcoal: #212529;
+  --gray: #6c757d;
+  --light-pastel-blue: #EBECF0;
+  --soft-bluish-gray: #BABECC;
+  --red: #950d0d;
+  --dark-red: #BB3D3D;
+  --button: #b3b3b3;
+  --button-color: #0a0a0a;
+  --shadow: #000;
+  --bg: #737373;
+  --header: #7a7a7a;
+  --color: #fafafa;
+  --lit-header: #e6e6e6;
+
+  --speed: 2s;
+}
+
+* {
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--charcoal);
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--white);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--white);
+  border-radius: 10px;
+  cursor: grab;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--green);
+}
+
+/* Form Style */
+form {
+  padding: 16px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+form p,
+form input,
+form select,
+form textarea,
+form button {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.2px;
+  font-size: 16px;
+}
+
+form div,
+form p {
+  color: var(--soft-bluish-gray);
+  text-shadow: 1px 1px 1px var(--white);
+}
+
+form .segment {
+  padding: 32px 0;
+  text-align: center;
+}
+
+form button,
+form input,
+form select,
+form textarea {
+  border: 0;
+  outline: 0;
+  font-size: 16px;
+  border-radius: 320px;
+  padding: 16px;
+  background-color: var(--light-pastel-blue);
+  text-shadow: 1px 1px 0 var(--white);
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+  width: 100%;
+  color: var(--black);
+}
+
+form label>span {
+  margin-left: 10px;
+  color: var(--gray);
+}
+
+form input,
+form select {
+  margin-right: 8px;
+  box-shadow: inset 2px 2px 5px var(--soft-bluish-gray), inset -5px -5px 10px var(--white);
+  height: fit-content;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+form textarea {
+  margin-right: 8px;
+  box-shadow: inset 2px 2px 5px var(--soft-bluish-gray), inset -5px -5px 10px var(--white);
+  height: 200px;
+  min-height: 200px;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  border-radius: 40px !important;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  box-shadow: inset 1px 1px 2px var(--soft-bluish-gray), inset -1px -1px 2px var(--white);
+}
+
+form button {
+  color: #61677C;
+  font-weight: bold;
+  box-shadow: -5px -5px 20px var(--white), 5px 5px 20px var(--soft-bluish-gray);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+form button:hover {
+  box-shadow: -2px -2px 5px var(--white), 2px 2px 5px var(--soft-bluish-gray);
+}
+
+form button:active {
+  box-shadow: inset 1px 1px 2px var(--soft-bluish-gray), inset -1px -1px 2px var(--white);
+}
+
+form button .icon {
+  margin-right: 8px;
+}
+
+form button.unit {
+  border-radius: 8px;
+  line-height: 0;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 8px;
+  font-size: 19.2px;
+}
+
+form button.unit .icon {
+  margin-right: 0;
+}
+
+form button.submit-btn {
+  display: block;
+  width: 100%;
+  color: var(--deep-green);
+}
+
+form button.search-btn {
+  display: flex;
+  gap: 10px;
+  width: fit-content;
+  color: var(--deep-green);
+}
+
+form button .faSave {
+  margin-right: 5px;
+}
+
+form .input-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+form .input-group label {
+  margin: 0;
+  flex: 1;
+}
+
+/* Back Button Style */
+.back-btn {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.2px;
+  font-size: 16px;
+}
+
+.back-btn {
+  margin: 20px 0 0 40px;
+  border: 0;
+  outline: 0;
+  font-size: 16px;
+  border-radius: 320px;
+  padding: 16px;
+  background-color: #EBECF0;
+  text-shadow: 1px 1px 0 #FFF;
+  color: #61677C;
+  font-weight: bold;
+  box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.back-btn:hover {
+  box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+}
+
+.back-btn:active {
+  box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+
+.back-btn img {
+  height: 150%;
+  margin-right: 8px;
+}
+
+.back-btn {
+  border-radius: 8px;
+  line-height: 0;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 19.2px;
+}
+
+.back-btn img {
+  margin-right: 0;
+}

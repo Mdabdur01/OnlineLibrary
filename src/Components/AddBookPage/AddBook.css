@@ -1,0 +1,15 @@
+.add-book {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    height: auto;
+    width: 95vw;
+    max-width: 700px;
+    background: var(--light-pastel-blue);
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: -0.2px;
+    font-size: 16px;
+    padding-bottom: 40px;
+    margin: 40px 0;
+    border-radius: 40px;
+}
