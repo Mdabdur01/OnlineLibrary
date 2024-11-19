@@ -68,5 +68,6 @@ To run the project locally, follow these steps:
 Clone the repository to your local machine using Git. Open your terminal and run:
 
 ```bash
-git clone https://github.com/Mdabdur01/OnlineLibrary.git
+git clone https://github.com/Mdabdur01/Online-Library.git
 
+```

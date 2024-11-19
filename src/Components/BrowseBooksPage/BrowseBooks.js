@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import "./BrowseBooks.css";
 import MainHeader from "../../HelperComponents/Header/MainHeader";
 import MainLoader from "../../HelperComponents/Loader/MainLoader";
@@ -25,29 +25,36 @@ const BrowseBooks = () => {
     useEffect(() => {
         if (Error) {
             console.error(Error);
+            setIsLoading(false);
             return;
         }
 
         if (FilteredBooks && FilteredBooks.length > 0) {
             setBooks(FilteredBooks);
+            setIsLoading(false);
         } else {
             setBooks([]);
+            setIsLoading(false);
         }
-
-        setIsLoading(false);
     }, [FilteredBooks, Error]);
 
-    const HandleSearch = () => {
+    const HandleSearch = useCallback(() => {
         if (SearchInput !== UpdateSearchInput) {
-            setSearchInput(UpdateSearchInput); // Only update if the input has changed
+            setSearchInput(UpdateSearchInput);
         }
-    }
+    }, [SearchInput, UpdateSearchInput]);
+
+    const HandleCategoryChange = useCallback((Event) => {
+        const { value } = Event.target;
+
+        setCategory(value);
+    }, []);
 
     const Categories = [
         "All", "Adventure", "Autobiography", "Biography", "Business and Economics",
-        "Children's Fiction", "Cookbooks", "Crime Fiction", "Drama", "Dystopian",
+        "Children's Fiction", "Classic", "Cookbooks", "Crime Fiction", "Drama", "Dystopian",
         "Epistolary", "Fable", "Fairy Tale", "Fantasy", "Graphic Novels", "Health and Wellness",
-        "Historical Fiction", "History", "Horror", "Magical Realism", "Memoir",
+        "Historical Fiction", "History", "Horror", "Love Story", "Magical Realism", "Memoir",
         "Mystery", "Philosophy", "Poetry", "Politics", "Programming", "Religion and Spirituality",
         "Romance", "Satire", "Science and Nature", "Science Fiction", "Self-Help",
         "Thriller", "Travel", "True Crime", "Urban Fantasy", "Western", "Young Adult"
@@ -93,11 +100,20 @@ const BrowseBooks = () => {
 
                                     <label>
                                         <span>Select Category:</span>
-                                        <select onChange={(e) => setCategory(e.target.value)}>
+                                        <select
+                                            onChange={HandleCategoryChange}
+                                        >
                                             {
-                                                Categories.map((category, index) => (
-                                                    <option key={index} value={category !== "All" ? category : ""}>{category}</option>
-                                                ))
+                                                Categories.map((category, index) => {
+                                                    return (
+                                                        <option
+                                                            key={index}
+                                                            value={category !== "All" ? category : ""}
+                                                        >
+                                                            {category}
+                                                        </option>
+                                                    )
+                                                })
                                             }
                                         </select>
                                     </label>

@@ -15,37 +15,39 @@ const Home = () => {
     useEffect(() => {
         if (Error) {
             console.error(Error);
+            setIsLoading(false);
             return;
         }
 
         if (BooksData.length > 0) {
             setBooks(BooksData);
+            setIsLoading(false);
         }
-
-        setIsLoading(false);
     }, [BooksData, Error]);
 
     return (
         <React.Fragment>
-            <MainHeader />
-
             {
-                isLoading ?
+                isLoading
+                    ?
                     <MainLoader />
                     :
-                    <div className="home">
-                        <div className="books-container">
-                            {
-                                Books.map((Book, Index) => {
-                                    return (
-                                        <BookCard key={Index} Book={Book} />
-                                    )
-                                })
-                            }
-                        </div>
-                    </div>
-            }
+                    <>
+                        <MainHeader />
 
+                        <div className="home">
+                            <div className="books-container">
+                                {
+                                    Books.map((Book, Index) => {
+                                        return (
+                                            <BookCard key={Index} Book={Book} />
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                    </>
+            }
         </React.Fragment>
     );
 };
